@@ -1,0 +1,29 @@
+module insitu {
+
+  // message StatusMsg;
+
+  array [1D] InSitu {
+    entry InSitu();
+    
+    // Creates in situ processing chares:
+    //  Constructs an Ascent object
+    //  Call publish?
+    entry void CreateInSituChares(const CharmAscentData& data, int status_ep, int status_id);
+
+    // Callback for in situ chare array creation:
+    //  Packages 'thisIndex' and 'm' into the Conduit ghostData
+    //  Call execute on the Ascent object
+    //  Delete m
+    entry void InSituCreated(CkArrayCreatedMsg *m);
+  };
+
+  //array [1D] StatusMgr
+  //{
+  //  entry StatusMgr(unsigned int);
+  //  entry void status(StatusMsg* msg);
+  //  entry void newCycle(int total_tasks);
+  //  entry void start();
+  //  entry void done();
+  //};
+
+}
